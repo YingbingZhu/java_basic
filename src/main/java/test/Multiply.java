@@ -5,19 +5,22 @@ public class Multiply {
         String num1 = "123456789";
         String num2 = "12345";
 
-        int i = toNumber(num1);
-        System.out.println(i);
+        int number1 = toNumber(num1);
+        int number2 = toNumber(num2);
 
+        String res = Integer.toString(number1 * number2);
+        System.out.println(res);
+        
+        
     }
 
     public static int toNumber(String str) {
         int num = 0;
-        int i = 0;
+        int i = 1;
         for (char c: str.toCharArray()){
             int digit = c - '0';
-            num += digit *  (str.length()-i);
+            num += digit * Math.pow(10,(str.length()-i));
             i += 1;
-            System.out.println(num);
         }
         return num;
     }
