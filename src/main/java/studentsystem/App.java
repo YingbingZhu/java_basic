@@ -6,13 +6,19 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        ArrayList<User> list = new ArrayList<>();
 
+    static ArrayList<User> list = new ArrayList<>();
+
+    static {
+        list.add(new User("yb", "1234e", "324324325253234321", "13806006177"));
+    }
+    
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("welcome");
             System.out.println("select: 1 login  2 register  3 forget");
-            Scanner sc = new Scanner(System.in);
             String choose = sc.next();
             switch (choose) {
                 case "1":

@@ -17,6 +17,8 @@ public class Test {
         // s.privateName;  private access
         s.show();
 
+        Student s1 = new Student();
+
     }
 }
 
