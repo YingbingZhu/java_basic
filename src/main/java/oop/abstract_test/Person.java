@@ -1,6 +1,8 @@
 package oop.abstract_test;
 
-public class Person {
+
+// Person is meaningless, to avoid direct usage of person class
+public abstract class Person {
     private String name;
     private int age;
 
