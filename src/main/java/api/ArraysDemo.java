@@ -23,11 +23,17 @@ public class ArraysDemo {
 
         Arrays.sort(newArr1);
 
-        Arrays.sort(arr, new Comparator<Integer>() {
+        Integer[] arr3 = {3, 6, 1, 2};
 
+
+        Arrays.sort(arr3, new Comparator<Integer>() {
+            // binary search + insertion sort,  o1(un-order), o2(ordered)
             @Override
             public int compare(Integer o1, Integer o2) {
-                return 0;
+                System.out.println(o1);
+                System.out.println(o2);
+                // o1 - o2: asc; o2- o1: desc
+                return o1 - o2;
             }
         });
     }
