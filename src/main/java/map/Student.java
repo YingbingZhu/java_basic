@@ -1,27 +1,17 @@
-package oop;
+package map;
 
 import java.util.Objects;
 
 public class Student implements Comparable<Student>{
-    private int id;
     private String name;
     private int age;
 
-    public Student() {
-    }
-
-    public Student(int id, String name, int age) {
-        this.id = id;
+    public Student(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Student() {
     }
 
     public String getName() {
@@ -45,27 +35,26 @@ public class Student implements Comparable<Student>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return id == student.id && age == student.age && name.equals(student.name);
+        return age == student.age && Objects.equals(name, student.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age);
-    }
-
-
-    @Override
-    public int compareTo(Student o) {
-        // sort by age asc
-        return this.getAge() - o.getAge();
+        return Objects.hash(name, age);
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        int i = this.getAge() - o.getAge();
+        i = i == 0 ? this.getName().compareTo(o.getName()) : i; // ascii
+        return i;
     }
 }
